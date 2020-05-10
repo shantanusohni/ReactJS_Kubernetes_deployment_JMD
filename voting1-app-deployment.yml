@@ -16,10 +16,11 @@ spec:
       labels:
         name: voting-app-pod1
         app: demo-voting-app1
-        
+
     spec:
       containers:
       - name: voting-app1
         image: shantanusohni/reactjs
+        imagePullPolicy: Always
         ports:
         - containerPort: 80

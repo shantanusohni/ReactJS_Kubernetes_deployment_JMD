@@ -31,7 +31,7 @@ pipeline {
         }        
         stage('Deploy to GKE Cluster') {
             steps{
-                sh "sed -i 's/reactjs:latest/reactjs:${env.BUILD_ID}/g' deployment.yaml"
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'app-deployment.yml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
     }    

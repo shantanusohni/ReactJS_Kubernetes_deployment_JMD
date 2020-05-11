@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
         <div class="header">
-            Simple React App_babu
+            Simple React App_jaimatadi
         </div>
     )
     

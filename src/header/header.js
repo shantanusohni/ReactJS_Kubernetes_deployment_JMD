@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
         <div class="header">
-            Simple React App_11-05-2020
+            Simple React App_23-05-2020
         </div>
     )
     

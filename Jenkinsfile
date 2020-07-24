@@ -32,8 +32,6 @@ pipeline {
         stage('Deploy to GKE Cluster') {
             steps{
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'app-deployment.yml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'kubectl apply -f app-deployment.yml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'kubectl rollout restart deployment.apps/voting-app-deployment', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
     }    
